@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-ITinnovDesign.Storefront.UI.Web.MVC-2BECE4B0-F76A-4BF6-BEEF-30EB568FEFD4</UserSecretsId>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\ITinnovDesign.Storefront.Controllers\ITinnovDesign.Storefront.Controllers.csproj" />
+    <ProjectReference Include="..\ITinnovDesign.Storefront.Infrastructure\ITinnovDesign.Storefront.Infrastructure.csproj" />
+    <ProjectReference Include="..\ITinnovDesign.Storefront.Model\ITinnovDesign.Storefront.Model.csproj" />
+    <ProjectReference Include="..\ITinnovDesign.Storefront.Repository.EF\ITinnovDesign.Storefront.Repository.EF.csproj" />
+    <ProjectReference Include="..\ITinnovDesign.Storefront.Services.Cache\ITinnovDesign.Storefront.Services.Cache.csproj" />
+    <ProjectReference Include="..\ITinnovDesign.Storefront.Services\ITinnovDesign.Storefront.Services.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Content\Images\Structure\" />
+  </ItemGroup>
+
+</Project>

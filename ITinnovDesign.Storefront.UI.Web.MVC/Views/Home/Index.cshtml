@@ -1,0 +1,39 @@
+﻿@using ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog
+@using ITinnovDesign.Storefront.Services.ViewModels
+@using ITinnovDesign.Storefront.UI.Web.MVC.Helpers
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <partial name="_ProductCatalogMaster" />
+
+    <br />
+    <img width="559" height="297" src="~/Content/Images/Products/product-lifestyle.jpg" style="border-width: 0px; padding: 0px; margin: 0px" />
+    <div style="clear: both;"></div>
+    <h2>Top Products</h2>
+    <div id="items" style="border-width: 1px; padding: 0px; margin: 0px">
+       
+        <ul class="items-list">
+            @foreach (ProductSummaryView product in Model.Products)
+            {
+            <li class="item-detail">
+                <a class="item-productimage-link"  asp-controller="Product" asp-action="Detail "asp-route-id="@product.Id">
+                    <img class="item-productimage"
+                         src="~/Content/Images/Products/@(product.Id.ToString()).jpg"/>
+                </a>
+                <div class="item-productname">
+
+                    <a asp-controller="Product" asp-action="Detail " asp-route-id="@product.Id">
+                        @(product.BrandName + " " + product.Name)
+                    </a>
+                </div>
+                <div class="item-price">
+                    @Html.Encode(product.Price)
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+</div>

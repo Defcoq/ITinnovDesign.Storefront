@@ -1,0 +1,16 @@
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.deps.json
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Model.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Model.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.csprojAssemblyReference.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.AssemblyInfoInputs.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.AssemblyInfo.cs
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.csproj.CopyComplete
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.csproj.CoreCompileInputs.cache

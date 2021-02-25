@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ITinnovDesign.Storefront.Services.Cache/1.0.0": {
+        "runtime": {
+          "ITinnovDesign.Storefront.Services.Cache.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ITinnovDesign.Storefront.Services.Cache/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
