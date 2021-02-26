@@ -134,6 +134,10 @@
               "target": "Package",
               "version": "[10.1.1, )"
             },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.2.2, )"
@@ -141,6 +145,30 @@
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
             "Serilog": {
               "target": "Package",
@@ -459,6 +487,9 @@
             "projectReferences": {
               "C:\\Worksapce\\Dot.netCoreSample\\Agathas.Storefront\\ITinnovDesign.Storefront\\ITinnovDesign.Storefront.Model\\ITinnovDesign.Storefront.Model.csproj": {
                 "projectPath": "C:\\Worksapce\\Dot.netCoreSample\\Agathas.Storefront\\ITinnovDesign.Storefront\\ITinnovDesign.Storefront.Model\\ITinnovDesign.Storefront.Model.csproj"
+              },
+              "C:\\Worksapce\\Dot.netCoreSample\\Agathas.Storefront\\ITinnovDesign.Storefront\\ITinnovDesign.Storefront.Repository.EF\\ITinnovDesign.Storefront.Repository.EF.csproj": {
+                "projectPath": "C:\\Worksapce\\Dot.netCoreSample\\Agathas.Storefront\\ITinnovDesign.Storefront\\ITinnovDesign.Storefront.Repository.EF\\ITinnovDesign.Storefront.Repository.EF.csproj"
               }
             }
           }
@@ -476,6 +507,34 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[10.1.1, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
             }
           },
           "imports": [

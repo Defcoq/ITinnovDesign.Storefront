@@ -80,12 +80,17 @@ namespace ITinnovDesign.Storefront.Repository.EF
             return Table;
         }
 
+   
+       
+
         public IEnumerable<T> FindAll(int index, int count)
         {
 
 
             return Table.Skip(index).Take(count);
         }
+
+        public virtual IQueryable<T> GetAll() => Table;
 
         public IEnumerable<T> FindBy(IQueryable<T> query)
         {

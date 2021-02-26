@@ -12,3 +12,8 @@ C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinn
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.pdb
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.csproj.CopyComplete
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.csproj.CoreCompileInputs.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.runtimeconfig.json
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.runtimeconfig.dev.json
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.genruntimeconfig.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Repository.EF.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Services\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Repository.EF.pdb

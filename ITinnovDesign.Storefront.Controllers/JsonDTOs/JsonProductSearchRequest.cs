@@ -8,7 +8,7 @@ using System.Text;
 namespace ITinnovDesign.Storefront.Controllers.JsonDTOs
 {
     [DataContract]
-    [ModelBinder(typeof(JsonModelBinder))]
+  //  [ModelBinder(typeof(JsonModelBinder))]
     public class JsonProductSearchRequest
     {
         [DataMember]

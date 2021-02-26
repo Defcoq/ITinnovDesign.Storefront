@@ -16,31 +16,34 @@ namespace ITinnovDesign.Storefront.Model.Products
 
         public string Name
         {
-            get { return Title.Name; }
+            get { return Title?.Name; }
         }
 
-        public Decimal Price
+        public decimal? Price
         {
-            get { return Title.Price; }
+            get { return Title?.Price; }
         }
 
         public int BrandId { get; set; }
         public Brand Brand
         {
-            get { return Title.Brand; }
+            get { return Title?.Brand; }
+            set { value = Title?.Brand; }
         }
 
 
         public int ProductColorId { get; set; }
         public ProductColor Color
         {
-            get { return Title.Color; }
+            get { return Title?.Color; }
+            set { value = Title?.Color; }
         }
 
         public int CategoryId { get; set; }
         public Category Category
         {
-            get { return Title.Category; }
+            get { return Title?.Category; }
+            set { value = Title?.Category; }
         }
 
         protected override void Validate()

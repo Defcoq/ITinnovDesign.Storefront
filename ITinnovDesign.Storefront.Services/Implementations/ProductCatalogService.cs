@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using ITinnovDesign.Storefront.Repository.EF;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITinnovDesign.Storefront.Services.Implementations
 {
@@ -32,7 +34,16 @@ namespace ITinnovDesign.Storefront.Services.Implementations
 
         private IEnumerable<Product> GetAllProductsMatchingQueryAndSort(GetProductsByCategoryRequest request, IQueryable<Product> productQuery)
         {
+       
+            // IEnumerable<Product> productsMatchingRefinement = productsMatchingRefinementList.AsEnumerable();
+
+            productQuery =  productQuery.Include(x => x.Category)
+                                                         .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Brand)
+                                                         .Include(x => x.Size)
+                                                         .Include(x => x.Color);
             IEnumerable<Product> productsMatchingRefinement = _productRepository.FindBy(productQuery);
+         
 
             switch (request.SortBy)
             {
@@ -51,22 +62,86 @@ namespace ITinnovDesign.Storefront.Services.Implementations
         {
             GetFeaturedProductsResponse response = new GetFeaturedProductsResponse();
 
-            var productQuery = _productTitleRepository.FindAll().AsQueryable();
+            var productQuery = _productTitleRepository.GetAll().Include(x=>x.Category)
+                                                               .Include(x => x.Brand)
+                                                               .Include(x => x.Color); ;
 
            // productQuery.OrderByProperty = new OrderByClause() { Desc = true, PropertyName = PropertyNameHelper.ResolvePropertyName<ProductTitle>(pt => pt.Price) };
 
-            response.Products = _productTitleRepository.FindBy(productQuery, 0, 6).ConvertToProductViews(_mapper);
+            response.Products = _productTitleRepository.FindBy(productQuery, 0, 10).ConvertToProductViews(_mapper);
 
             return response;
         }
 
+        private bool checkColor(Product product, GetProductsByCategoryRequest request)
+        {
+            if(product != null && product.Color != null)
+            {
+                return request.ColorIds.Contains(product.Color.Id);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool checkSize(Product product, GetProductsByCategoryRequest request)
+        {
+            if (product != null && product.Color != null)
+            {
+                return request.SizeIds.Contains(product.Size.Id);
+            }
+            else
+            {
+                return false;
+            }
+        }
         public GetProductsByCategoryResponse GetProductsByCategory(GetProductsByCategoryRequest request)
         {
             GetProductsByCategoryResponse response;
 
             //  Query productQuery = ProductSearchRequestQueryGenerator.CreateQueryFor(request);
-            var productQuery = _productRepository.FindAll().Where(x=>x.CategoryId == request.CategoryId || 
-            request.BrandIds.Contains(x.BrandId) || request.ColorIds.Contains(x.Color.Id) || request.SizeIds.Contains(x.Size.Id)).AsQueryable();
+            IQueryable<Product> productQuery = _productRepository.GetAll().Where(x => x.CategoryId == request.CategoryId)
+                                                         .Include(x => x.Category)
+                                                         .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Brand)
+                                                         .Include(x => x.Size)
+                                                         .Include(x => x.Color);
+                                                         
+            if (request.BrandIds.Length >0)
+            {
+                productQuery = productQuery.Where(x=>request.BrandIds.Contains(x.BrandId));
+                                                         
+            }
+
+            if (request.ColorIds.Length >0)
+            {
+                productQuery = productQuery.Where(x => x.Color != null && request.ColorIds.Contains(x.Color.Id));
+
+            }
+
+            if (request.SizeIds.Length > 0)
+            {
+                productQuery = productQuery.Where(x => x.Size != null && request.SizeIds.Contains(x.Size.Id));
+
+            }
+
+
+            //var productQuery = _productRepository.GetAll().Where(x=>x.CategoryId == request.CategoryId
+            //||
+            //request.BrandIds.Contains(x.BrandId) || checkColor(x, request) || checkSize(x, request))
+            //                                             .Include(x => x.Category)
+            //                                             .Include(x => x.Title)
+            //                                             .ThenInclude(x => x.Brand)
+            //                                             .Include(x => x.Size)
+            //                                             .Include(x => x.Color)
+            //                                             ;
+            //var productQuery = _productRepository.FindAll().Where(x=>x.CategoryId == request.CategoryId || 
+            //request.BrandIds.Contains(x.BrandId) ||  checkColor(x, request) || checkSize(x, request)).AsQueryable().Include(x => x.Category)
+            //                                             .Include(x => x.Title)
+            //                                             .ThenInclude(x => x.Brand)
+            //                                             .Include(x => x.Size)
+            //                                             .Include(x => x.Color);
 
             IEnumerable<Product> productsMatchingRefinement = GetAllProductsMatchingQueryAndSort(request, productQuery);
 

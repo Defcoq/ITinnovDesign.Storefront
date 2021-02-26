@@ -18,9 +18,9 @@ namespace ITinnovDesign.Storefront.Services
         public  void ConfigureAutoMapper()
         {
             // Product Title
-            CreateMap<ProductTitle, ProductSummaryView>();
-            CreateMap<ProductTitle, ProductView>();
-            CreateMap<Product, ProductSummaryView>();
+            CreateMap<ProductTitle, ProductSummaryView>().ForMember(x => x.BrandName, y => y.MapFrom(z => z.Brand.Name));
+            CreateMap<ProductTitle, ProductView>().ForMember(x => x.BrandName, y => y.MapFrom(z => z.Brand.Name));
+            CreateMap<Product, ProductSummaryView>().ForMember(x=>x.BrandName, y => y.MapFrom(z => z.Brand.Name));
             CreateMap<Product, ProductSizeOption>();
 
             // Category

@@ -1522,8 +1522,12 @@
       "ITinnovDesign.Storefront.Infrastructure/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.1.1",
+          "Dapper": "2.0.30",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Proxies": "3.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1",
           "Serilog": "2.9.1-dev-01154",
           "Serilog.Settings.Configuration": "3.1.1-dev-00216",
           "Serilog.Sinks.Console": "4.0.0-dev-00839",

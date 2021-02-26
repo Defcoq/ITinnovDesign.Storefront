@@ -6,6 +6,7 @@ using ITinnovDesign.Storefront.Services.Interfaces;
 using ITinnovDesign.Storefront.Services.Messaging.ProductCatalogService;
 using ITinnovDesign.Storefront.Services.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,14 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
     public class ProductController : ProductCatalogBaseController
     {
         private readonly IProductCatalogService _productService;
+        private readonly WebConfigApplicationSettings _webConfigApplicationSettings;
+       
 
-        public ProductController(IProductCatalogService productService)
+        public ProductController(IProductCatalogService productService, IOptions<WebConfigApplicationSettings> webConfigApplicationSettings)
             : base(productService)
         {
             _productService = productService;
+            _webConfigApplicationSettings = webConfigApplicationSettings.Value;
         }
 
         public ActionResult GetProductsByCategory(int categoryId)
@@ -54,13 +58,12 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
             return productSearchResultView;
         }
 
-        private static GetProductsByCategoryRequest
+        private GetProductsByCategoryRequest
                                GenerateInitialProductSearchRequestFrom(int categoryId)
         {
             GetProductsByCategoryRequest productSearchRequest =
                                      new GetProductsByCategoryRequest();
-            productSearchRequest.NumberOfResultsPerPage = int.Parse(ApplicationSettingsFactory
-                                     .GetApplicationSettings().NumberOfResultsPerPage);
+            productSearchRequest.NumberOfResultsPerPage = int.Parse(_webConfigApplicationSettings.NumberOfResultsPerPage);
             productSearchRequest.CategoryId = categoryId;
             productSearchRequest.Index = 1;
             productSearchRequest.SortBy = ProductsSortBy.PriceHighToLow;
@@ -68,7 +71,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         }
 
        [HttpPost("GetProductsByAjax")]
-        public JsonResult GetProductsByAjax(
+        public JsonResult GetProductsByAjax([FromBody]
                                 JsonProductSearchRequest jsonProductSearchRequest)
         {
             GetProductsByCategoryRequest productSearchRequest =
@@ -82,12 +85,12 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
             return Json(productSearchResultView);
         }
 
-        private static GetProductsByCategoryRequest GenerateProductSearchRequestFrom(
+        private  GetProductsByCategoryRequest GenerateProductSearchRequestFrom(
                                       JsonProductSearchRequest jsonProductSearchRequest)
         {
             GetProductsByCategoryRequest productSearchRequest = new GetProductsByCategoryRequest();
 
-            productSearchRequest.NumberOfResultsPerPage = int.Parse(ApplicationSettingsFactory.GetApplicationSettings().NumberOfResultsPerPage);
+            productSearchRequest.NumberOfResultsPerPage = int.Parse(_webConfigApplicationSettings.NumberOfResultsPerPage);
             productSearchRequest.Index = jsonProductSearchRequest.Index;
             productSearchRequest.CategoryId = jsonProductSearchRequest.CategoryId;
             productSearchRequest.SortBy = jsonProductSearchRequest.SortBy;

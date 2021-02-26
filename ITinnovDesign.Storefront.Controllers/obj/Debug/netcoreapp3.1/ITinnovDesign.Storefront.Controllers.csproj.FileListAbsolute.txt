@@ -14,3 +14,5 @@ C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinn
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.dll
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Services.pdb
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Controllers.csproj.CoreCompileInputs.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Repository.EF.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Controllers\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Repository.EF.pdb

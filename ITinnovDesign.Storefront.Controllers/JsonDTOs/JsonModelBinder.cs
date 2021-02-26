@@ -17,8 +17,14 @@ namespace ITinnovDesign.Storefront.Controllers.JsonDTOs
             if (bindingContext == null)
                 throw new ArgumentNullException("bindingContext");
             var serializer = new DataContractJsonSerializer(bindingContext.ModelType);
+            //using (Stream s = await wc.OpenReadTaskAsync("https://example.com/sample.json"))
+            //{
+            //    record = ser.ReadObject(s) as Example;
+            //}
+            //var esitoSerializeInJson = JsonConvert.SerializeObject(esito);
+            bindingContext.Result = ModelBindingResult.Success(serializer.ReadObject(bindingContext.HttpContext.Request.Body));
 
-            return Task.FromResult(serializer.ReadObject(bindingContext.HttpContext.Request.Body));
+            return Task.CompletedTask;
 
         }
     }

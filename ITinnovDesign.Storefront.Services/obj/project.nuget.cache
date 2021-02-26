@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FgxFaoqBoK/ZCyY7sJ2k91sTUVz37VAFTGlNrSACxl+5hyFigSAoN4lHlukLHzbD1+AEgI7KNpsFZAae/v9d+g==",
+  "dgSpecHash": "J/Nmox+AP8SJpMD5pxmBRxRAtJSIQh+Gs7mMnKXvpR8OQPRMtamOHvDNyrVD5iCuoat1a92+hgllzeL6cwgoKw==",
   "success": true,
   "projectFilePath": "C:\\Worksapce\\Dot.netCoreSample\\Agathas.Storefront\\ITinnovDesign.Storefront\\ITinnovDesign.Storefront.Services\\ITinnovDesign.Storefront.Services.csproj",
   "expectedPackageFiles": [
@@ -19,9 +19,11 @@
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.1\\microsoft.entityframeworkcore.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.1\\microsoft.entityframeworkcore.abstractions.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.1\\microsoft.entityframeworkcore.analyzers.3.1.1.nupkg.sha512",
+    "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.1\\microsoft.entityframeworkcore.design.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.proxies\\3.1.1\\microsoft.entityframeworkcore.proxies.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.1\\microsoft.entityframeworkcore.relational.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.1\\microsoft.entityframeworkcore.sqlserver.3.1.1.nupkg.sha512",
+    "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.1\\microsoft.entityframeworkcore.tools.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.1\\microsoft.extensions.caching.abstractions.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.1\\microsoft.extensions.caching.memory.3.1.1.nupkg.sha512",
     "C:\\Users\\jpierre.deffofotso\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.1\\microsoft.extensions.configuration.3.1.1.nupkg.sha512",

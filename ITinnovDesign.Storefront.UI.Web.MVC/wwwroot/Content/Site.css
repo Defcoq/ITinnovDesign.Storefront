@@ -27,7 +27,7 @@ body {
 
 #basketSummary{ width: 300px; float: right; }
 
-#footer {
+#footershope {
    clear: both; text-align : center; background:none repeat scroll 0 0 #FFF2D9;    
    padding: 20px 0 0px 0px; height: 50px; margin:auto; width:840px;
    font-family:Georgia,"Times New Roman",Times,serif; font-size:1.4em; }
@@ -35,6 +35,14 @@ body {
 #prefooter {	
     height: 90px; width: 840px; float: right; background:none repeat scroll 0 0 #EEEEEE;
     border-top:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC;}
+
+#prefootershope {
+    height: 90px;
+    width: 840px;
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
 
 .footer-list-header {list-style-type: none;	font-weight : bold;	font-size:1.2em; }
 
@@ -86,7 +94,7 @@ li a.availableItem {
 
 /* Product Listing */
 ul li.item-detail { float: left; width: 17em; border:1px solid #D1D1D1; margin-right : 2em; margin-bottom : 2em; }
-ul.items-list { width: 60em;list-style-type: none; padding:0px; margin:0px; }
+ul.items-list { width: auto;list-style-type: none; padding:0px; margin:0px; }
 .item-productimage { border: medium none; height: 230px; width: 180px; text-decoration: none; }
 .item-productimage-link { border-style: none; text-decoration: none; width: 180px; }
 .item-productname { text-align:center; width: 180px; }

@@ -5,7 +5,10 @@
 
 function showOverlay(overlayId, idOfDivToOverlay) {
 
+   // debugger;
     heightAdditionOfOverlay = 0;
+   // alert("dentro  showOverlay");
+   // alert(idOfDivToOverlay);
 
     var pos = $("#" + idOfDivToOverlay).offset();
     var width = $("#" + idOfDivToOverlay).width();
