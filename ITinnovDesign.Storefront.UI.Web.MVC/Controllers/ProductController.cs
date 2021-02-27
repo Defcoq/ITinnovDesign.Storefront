@@ -71,7 +71,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         }
 
        [HttpPost("GetProductsByAjax")]
-        public JsonResult GetProductsByAjax([FromBody]
+        public JsonResult GetProductsByAjax(
                                 JsonProductSearchRequest jsonProductSearchRequest)
         {
             GetProductsByCategoryRequest productSearchRequest =

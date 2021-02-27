@@ -15,11 +15,8 @@
             {
                 <li>
                     <a class="availableItem"
-                       id="RefGrp-@Html.Encode(
-                                    refinementGroup.GroupId.ToString() + '-' +
-                                    refinement.Id.ToString())"
-                       href="JavaScript:refineSearch(@Html.Encode(refinementGroup.GroupId)>,
-                                         @Html.Encode(refinement.Id.ToString()))">
+                       id="RefGrp-@Html.Encode(refinementGroup.GroupId.ToString() + '-' + refinement.Id.ToString())"
+                       href="JavaScript:refineSearch(@Html.Encode(refinementGroup.GroupId),@Html.Encode(refinement.Id.ToString()))">
                         @Html.Encode(refinement.Name)
                     </a>
                 </li>
@@ -138,7 +135,12 @@
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
 
+                        console.log("this is data comming from server =>");
+                        console.log(data);
+
                         var mydata = { items: data.Products };
+
+                        console.log(mydata);
 
                         if (data.Products.length == 0) {
 
