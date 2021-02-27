@@ -64,11 +64,11 @@ namespace ITinnovDesign.Storefront.Services.Implementations
 
             var productQuery = _productTitleRepository.GetAll().Include(x=>x.Category)
                                                                .Include(x => x.Brand)
-                                                               .Include(x => x.Color); ;
+                                                               .Include(x => x.Color); 
 
            // productQuery.OrderByProperty = new OrderByClause() { Desc = true, PropertyName = PropertyNameHelper.ResolvePropertyName<ProductTitle>(pt => pt.Price) };
 
-            response.Products = _productTitleRepository.FindBy(productQuery, 0, 10).ConvertToProductViews(_mapper);
+            response.Products = _productTitleRepository.FindBy(productQuery, 0, 30).ConvertToProductViews(_mapper);
 
             return response;
         }
@@ -101,28 +101,55 @@ namespace ITinnovDesign.Storefront.Services.Implementations
             GetProductsByCategoryResponse response;
 
             //  Query productQuery = ProductSearchRequestQueryGenerator.CreateQueryFor(request);
-            IQueryable<Product> productQuery = _productRepository.GetAll().Where(x => x.CategoryId == request.CategoryId)
-                                                         .Include(x => x.Category)
+            IQueryable<Product> productQuery = _productRepository.GetAll().Where(x => x.Title.Category.Id == request.CategoryId)
+                                                         .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Category)
                                                          .Include(x => x.Title)
                                                          .ThenInclude(x => x.Brand)
-                                                         .Include(x => x.Size)
-                                                         .Include(x => x.Color);
+                                                          .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Color)
+                                                         .Include(x => x.Size);
+  
+          
                                                          
             if (request.BrandIds.Length >0)
             {
-                productQuery = productQuery.Where(x=>request.BrandIds.Contains(x.BrandId));
-                                                         
+                productQuery = _productRepository.GetAll().Where(x => x.Title.Category.Id == request.CategoryId || request.BrandIds.Contains(x.BrandId))
+                                                          .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Category)
+                                                         .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Brand)
+                                                          .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Color)
+                                                         .Include(x => x.Size);
+
+
             }
 
             if (request.ColorIds.Length >0)
             {
-                productQuery = productQuery.Where(x => x.Color != null && request.ColorIds.Contains(x.Color.Id));
-
+                productQuery = _productRepository.GetAll().Where(x => x.Title.Category.Id == request.CategoryId || request.BrandIds.Contains(x.BrandId) || (x.Color != null && request.ColorIds.Contains(x.Color.Id)))
+                                                          .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Category)
+                                                         .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Brand)
+                                                          .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Color)
+                                                         .Include(x => x.Size);
+                
             }
 
             if (request.SizeIds.Length > 0)
             {
-                productQuery = productQuery.Where(x => x.Size != null && request.SizeIds.Contains(x.Size.Id));
+                productQuery = _productRepository.GetAll().Where(x => x.Title.Category.Id == request.CategoryId || request.BrandIds.Contains(x.BrandId) || (x.Color != null && request.ColorIds.Contains(x.Color.Id)) || (x.Size != null && request.SizeIds.Contains(x.Size.Id)))
+                                                        .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Category)
+                                                         .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Brand)
+                                                          .Include(x => x.Title)
+                                                         .ThenInclude(x => x.Color)
+                                                         .Include(x => x.Size);
+                
 
             }
 
