@@ -19,6 +19,39 @@ namespace ITinnovDesign.Storefront.Model.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Basket.Basket", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Basket.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<Guid>("BasketId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BasketItems");
+                });
+
             modelBuilder.Entity("ITinnovDesign.Storefront.Model.Categories.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -135,7 +168,7 @@ namespace ITinnovDesign.Storefront.Model.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -149,21 +182,80 @@ namespace ITinnovDesign.Storefront.Model.Migrations
                     b.ToTable("ProductTitles");
                 });
 
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Shipping.Courier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Couriers");
+                });
+
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Shipping.DeliveryOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ShippingServiceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShippingServiceId");
+
+                    b.ToTable("DeliveryOptions");
+                });
+
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Shipping.ShippingService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourierId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourierId");
+
+                    b.ToTable("ShippingServices");
+                });
+
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Basket.BasketItem", b =>
+                {
+                    b.HasOne("ITinnovDesign.Storefront.Model.Basket.Basket", "Basket")
+                        .WithMany("Items")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITinnovDesign.Storefront.Model.Products.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId");
+                });
+
             modelBuilder.Entity("ITinnovDesign.Storefront.Model.Products.Product", b =>
                 {
-                    b.HasOne("ITinnovDesign.Storefront.Model.Products.Brand", null)
+                    b.HasOne("ITinnovDesign.Storefront.Model.Products.Brand", "Brand")
                         .WithMany("Products")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITinnovDesign.Storefront.Model.Categories.Category", null)
+                    b.HasOne("ITinnovDesign.Storefront.Model.Categories.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ITinnovDesign.Storefront.Model.Products.ProductColor", null)
+                    b.HasOne("ITinnovDesign.Storefront.Model.Products.ProductColor", "Color")
                         .WithMany("Products")
                         .HasForeignKey("ProductColorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -195,6 +287,22 @@ namespace ITinnovDesign.Storefront.Model.Migrations
                     b.HasOne("ITinnovDesign.Storefront.Model.Products.ProductColor", "Color")
                         .WithMany()
                         .HasForeignKey("ColorId");
+                });
+
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Shipping.DeliveryOption", b =>
+                {
+                    b.HasOne("ITinnovDesign.Storefront.Model.Shipping.ShippingService", "ShippingService")
+                        .WithMany()
+                        .HasForeignKey("ShippingServiceId");
+                });
+
+            modelBuilder.Entity("ITinnovDesign.Storefront.Model.Shipping.ShippingService", b =>
+                {
+                    b.HasOne("ITinnovDesign.Storefront.Model.Shipping.Courier", "Courier")
+                        .WithMany("Services")
+                        .HasForeignKey("CourierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

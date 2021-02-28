@@ -1,6 +1,5 @@
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\bin\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.StaticWebAssets.xml
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\bin\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.exe
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\bin\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.deps.json
@@ -63,3 +62,6 @@ C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInn
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\obj\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.csproj.CopyComplete
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\obj\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.dll
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\obj\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\obj\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.csproj.CoreCompileInputs.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\obj\Debug\netcoreapp3.1\scopedcss\bundle\ItInnovDesign.RazorTest.styles.css
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ItInnovDesign.RazorTest\obj\Debug\netcoreapp3.1\ItInnovDesign.RazorTest.genruntimeconfig.cache

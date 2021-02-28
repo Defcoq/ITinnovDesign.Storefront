@@ -18,12 +18,6 @@ namespace ITinnovDesign.Storefront.Controllers.JsonDTOs
         {
             if (bindingContext == null)
                 throw new ArgumentNullException("bindingContext");
-            var serializer = new DataContractJsonSerializer(bindingContext.ModelType);
-            //using (Stream s = await wc.OpenReadTaskAsync("https://example.com/sample.json"))
-            //{
-            //    record = ser.ReadObject(s) as Example;
-            //}
-            //var esitoSerializeInJson = JsonConvert.SerializeObject(esito);
 
             string valueFromBody = string.Empty;
 

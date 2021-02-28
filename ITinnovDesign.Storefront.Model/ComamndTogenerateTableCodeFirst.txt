@@ -1,0 +1,4 @@
+﻿add-migration MigrationName  => fom package manegement console
+> update-database –verbose   => fom package manegement console
+ dotnet ef migrations add MigrationName  => from comamnd line or powershell inside the Model folder
+ dotnet ef database update
