@@ -5,3 +5,7 @@ stop =>483(513 of 712) 12/11/2020
 => 24/02/2021/2300 = 503 (533 to 712)
 
 => 27/02/2021/1440 = 519 (549 to 712) => implementing the basket shopping
+
+=> 28/02/2021/1440 = 529 (559 to 712) => implementing the basket shopping
+
+=> 02/03/2021/2030 = 549 (579 to 712) => implementing the basket shopping

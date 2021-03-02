@@ -2,6 +2,7 @@
 using ITinnovDesign.Storefront.Controllers.JsonDTOs;
 using ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog;
 using ITinnovDesign.Storefront.Infrastructure.Configuration;
+using ITinnovDesign.Storefront.Infrastructure.CookieStorage;
 using ITinnovDesign.Storefront.Services.Interfaces;
 using ITinnovDesign.Storefront.Services.Messaging.ProductCatalogService;
 using ITinnovDesign.Storefront.Services.ViewModels;
@@ -18,13 +19,18 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
     {
         private readonly IProductCatalogService _productService;
         private readonly WebConfigApplicationSettings _webConfigApplicationSettings;
-       
 
-        public ProductController(IProductCatalogService productService, IOptions<WebConfigApplicationSettings> webConfigApplicationSettings)
-            : base(productService)
+
+        //public ProductController(IProductCatalogService productService, IOptions<WebConfigApplicationSettings> webConfigApplicationSettings)
+        //    : base(productService)
+        //{
+        //    _productService = productService;
+        //    _webConfigApplicationSettings = webConfigApplicationSettings.Value;
+        //}
+
+        public ProductController(IProductCatalogService productService,ICookieStorageService cookieStorageService): base(cookieStorageService, productService)
         {
             _productService = productService;
-            _webConfigApplicationSettings = webConfigApplicationSettings.Value;
         }
 
         public ActionResult GetProductsByCategory(int categoryId)
@@ -47,6 +53,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
             ProductSearchResultView productSearchResultView =
                                               new ProductSearchResultView();
 
+            productSearchResultView.BasketSummary = base.GetBasketSummaryView();
             productSearchResultView.Categories = base.GetCategories();
             productSearchResultView.CurrentPage = response.CurrentPage;
             productSearchResultView.NumberOfTitlesFound = response.NumberOfTitlesFound;
@@ -131,6 +138,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
             ProductView productView = response.Product;
 
             productDetailView.Product = productView;
+            productDetailView.BasketSummary = base.GetBasketSummaryView();
             productDetailView.Categories = base.GetCategories();
 
             return View(productDetailView);

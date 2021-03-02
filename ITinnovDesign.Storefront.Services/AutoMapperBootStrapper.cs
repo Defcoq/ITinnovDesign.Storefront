@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using ITinnovDesign.Storefront.Infrastructure.Helpers;
+using ITinnovDesign.Storefront.Model.Basket;
 using ITinnovDesign.Storefront.Model.Categories;
 using ITinnovDesign.Storefront.Model.Products;
+using ITinnovDesign.Storefront.Model.Shipping;
 using ITinnovDesign.Storefront.Services.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -29,8 +31,16 @@ namespace ITinnovDesign.Storefront.Services
             // IProductAttribute
             CreateMap<IProductAttribute, Refinement>();
 
+            // IProductAttribute
+         
+
+            // Basket
+            CreateMap<DeliveryOption, DeliveryOptionView>();
+            CreateMap<BasketItem, BasketItemView>();
+            CreateMap<Basket, BasketView>();
+
             // Global Money Formatter
-          
+
 
         }
     }

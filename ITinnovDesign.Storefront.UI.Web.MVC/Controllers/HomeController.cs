@@ -10,6 +10,7 @@ using ITinnovDesign.Storefront.Controllers.Controllers;
 using ITinnovDesign.Storefront.Services.Interfaces;
 using ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog;
 using ITinnovDesign.Storefront.Services.Messaging.ProductCatalogService;
+using ITinnovDesign.Storefront.Infrastructure.CookieStorage;
 
 namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
 {
@@ -17,8 +18,13 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
     public class HomeController : ProductCatalogBaseController
     {
         private readonly IProductCatalogService _productCatalogService;
-        public HomeController(IProductCatalogService productCatalogService)
-        : base(productCatalogService)
+        //public HomeController(IProductCatalogService productCatalogService)
+        //: base(productCatalogService)
+        //{
+        //    _productCatalogService = productCatalogService;
+        //}
+
+        public HomeController(IProductCatalogService productCatalogService,ICookieStorageService cookieStorageService): base(cookieStorageService, productCatalogService)
         {
             _productCatalogService = productCatalogService;
         }
@@ -28,6 +34,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
             homePageView.Categories = base.GetCategories();
             GetFeaturedProductsResponse response =_productCatalogService.GetFeaturedProducts();
             homePageView.Products = response.Products;
+            homePageView.BasketSummary = base.GetBasketSummaryView();
             return View(homePageView);
         }
     }
