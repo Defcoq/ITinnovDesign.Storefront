@@ -90,11 +90,13 @@ namespace ITinnovDesign.Storefront.Model.Basket
             return DeliveryOption.GetDeliveryChargeForBasketTotalOf(ItemsTotal);
         }
 
+
         public IDeliveryOption DeliveryOption
         {
             get { return _deliveryOption; }
         }
 
+        public int DeliveryOptionId { get { return _deliveryOption.Id; } set { value = _deliveryOption.Id; } }
         public void SetDeliveryOption(IDeliveryOption deliveryOption)
         {
             _deliveryOption = deliveryOption;

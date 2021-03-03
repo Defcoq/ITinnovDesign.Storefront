@@ -1,0 +1,268 @@
+﻿@using ITinnovDesign.Storefront.Services.ViewModels
+@using ITinnovDesign.Storefront.UI.Web.MVC.Helpers
+@using ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog
+@model ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog.BasketDetailView
+@functions{
+    public string SetSelectedClass(int ModelId, int DeliverId)
+    {
+        return (ModelId == DeliverId) ? "selected" : "";
+    }
+}
+
+<h2>Your Basket</h2>
+
+@if (Model.Basket.Items.Count()> 0)
+{
+    <div id="overlay" class="overlay"></div>
+    <div id="basketDisplay">
+        <table width="100%">
+            <tr>
+                <td>Product</td>
+                <td>Qty</td>
+                <td align="right">Price</td>
+                <td align="right">Total</td>
+            </tr>
+            <tr>
+                <td colspan="4"><hr /></td>
+            </tr>
+            @foreach (BasketItemView item in Model.Basket.Items)
+            {
+                <tr>
+                    <td>
+                        <span>@Html.Encode(item.ProductName)</span> -<span>@Html.Encode(item.ProductSizeName)</span> <br />
+                        <a href="JavaScript:removeItem(@Html.Encode(item.ProductId))">
+                            remove this item
+                        </a>
+                    </td>
+                    <td>
+                        @Html.TextBox("Qty-" + item.ProductId.ToString(), item.Qty,
+                        new { @class = "itemQtyBox" })
+                    </td>
+                    <td align="right">@Html.Encode(item.ProductPrice)</td>
+                    <td align="right">@Html.Encode(item.LineTotal)</td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td><a href="JavaScript:updateItemQtys();">update</a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"><hr /></td>
+            </tr>
+            <tr>
+                <td align="right" colspan="3">Basket: </td>
+                <td align="right">@Html.Encode(Model.Basket.ItemsTotal)</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="3">
+                    Shipping:
+                    <select class="item-sortdropdown" name="ddlShippingService"
+                            onchange="JavaScript:updateShippingService(this);"
+                            id="ddlShippingService">
+                        @foreach (DeliveryOptionView deliveryOption in Model.DeliveryOptions)
+                        {
+                            <!option value="@Html.Encode(deliveryOption.Id)"
+                                   @(SetSelectedClass(Model.Basket.DeliveryOptionId,deliveryOption.Id)) >
+                                @Html.Encode(deliveryOption.ShippingServiceDescription)
+                            </!option>
+                        }
+                    </select>
+                </td>
+                <td align="right">@Html.Encode(Model.Basket.DeliveryCost)</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="3"> Total: </td>
+                <td align="right">@Html.Encode(Model.Basket.BasketTotal)</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td align="right">
+                    @Html.ActionLink("Check Out", "Checkout", "Checkout")
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p></p>
+
+}
+else
+{
+
+    <span>You have no items in your basket.</span>
+
+}
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        function removeItem(productId) {
+
+            var postData = { productId: productId };
+
+            showOverlay("overlay", "main");
+            showOverlay("smoverlay", "basketSummary");
+
+           // $.post("/Basket/RemoveItem", postData, updateBasket, "json");
+
+             $.ajax({
+                url: "@Url.Action("RemoveItem", "Basket")",
+                type: 'POST',
+                dataType: 'json',
+                data: postData,
+                contentType: 'application/x-www-form-urlencoded',
+                success: updateBasket,
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+
+        function updateItemQtys() {
+
+            showOverlay("overlay", "main");
+            showOverlay("smoverlay", "basketSummary");
+
+            var postData;
+            var postArr = [];
+            var index = 0;
+
+            $("[id^='Qty-']").each(function () {
+
+                itemElementId = $(this).attr('id');
+                var productId = 0;
+                productId = itemElementId.replace("Qty-", "");
+
+                postArr[index] = { ProductId: productId, Qty: $(this).val() }
+                index++;
+            });
+
+            postData = { Items: postArr };
+
+            var jsonData = JSON.stringify(postData);
+
+           // $.post('/Basket/UpdateItems', jsonData, updateBasket, "json");
+
+              $.ajax({
+                url: "@Url.Action("UpdateItems", "Basket")",
+                type: 'POST',
+                dataType: 'json',
+                data: jsonData,
+                contentType: 'application/json; charset=utf-8',
+                success: updateBasket,
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+
+        function updateShippingService(ddlShippingService) {
+
+            var postData = { shippingServiceId: $(ddlShippingService).val() };
+
+            showOverlay("overlay", "main");
+            showOverlay("smoverlay", "basketSummary");
+
+           // $.post('/Basket/UpdateShipping', postData, updateBasket, "json");
+             $.ajax({
+                url: "@Url.Action("UpdateShipping", "Basket")",
+                type: 'POST',
+                dataType: 'json',
+                data: postData,
+                contentType: 'application/x-www-form-urlencoded',
+                success: updateBasket,
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+
+        function updateBasket(basketDetailView) {
+
+            if (basketDetailView.BasketSummary.NumberOfItems == 0) {
+                $("#basketDisplay").text("You have no items in your basket.");
+            }
+            else {
+                $("#basketDisplay").setTemplate($("#basketTemplate").html());
+                $("#basketDisplay").processTemplate(basketDetailView);
+            }
+
+            updateBasketSummary(basketDetailView.BasketSummary);
+
+            hideOverlay("overlay");
+            hideOverlay("smoverlay");
+        }
+    </script>
+
+
+    <script type="text/html" id="basketTemplate">
+        <table width="100%">
+            <tr>
+                <td>Product</td>
+                <td>Qty</td>
+                <td align="right">Price</td>
+                <td align="right">Total</td>
+            </tr>
+            <tr>
+                <td colspan="4"><hr /></td>
+            </tr>
+            {#foreach $T.Basket.Items as record}
+            <tr>
+                <td>
+                    {$T.record.ProductName} - {$T.record.ProductSizeName}<br />
+                    <a href="JavaScript:removeItem({$T.record.ProductId})">
+                        remove this item
+                    </a>
+                </td>
+                <td>
+                    <input class="itemQtyBox" id="Qty-{$T.record.ProductId}"
+                           type="text" value="{$T.record.Qty}" />
+                </td>
+                <td align="right">{$T.record.ProductPrice}</td>
+                <td align="right">{$T.record.LineTotal}</td>
+            </tr>
+            {#/for}
+            <tr>
+                <td></td>
+                <td><a href="JavaScript:updateItemQtys();">update</a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4"><hr /></td>
+            </tr>
+            <tr>
+                <td align="right" colspan="3">Basket: </td>
+                <td align="right">{$T.Basket.ItemsTotal}</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="3">
+                    Shipping:
+                    <select class="item-sortdropdown" name="ddlShippingService"
+                            onchange="JavaScript:updateShippingService(this);"
+                            id="ddlShippingService">
+                        {#foreach $T.DeliveryOptions as deliveryOption}
+                        <!option value="{$T.deliveryOption.Id}" {#if $T.deliveryOption.Id==$T.Basket.DeliveryOptionId} selected {#/if} >
+                            {$T.deliveryOption.ShippingServiceDescription}
+                        </!option>
+                        {#/for}
+                    </select>
+                </td>
+                <td align="right">{$T.Basket.DeliveryCost}</td>
+            </tr>
+            <tr>
+                <td align="right" colspan="3"> Total: </td>
+                <td align="right">{$T.Basket.BasketTotal}</td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <td align="right">
+                    @Html.ActionLink("Check Out", "Checkout", "Checkout")
+                </td>
+            </tr>
+        </table>
+    </script>
+}

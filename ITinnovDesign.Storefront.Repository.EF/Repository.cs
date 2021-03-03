@@ -51,6 +51,13 @@ namespace ITinnovDesign.Storefront.Repository.EF
 
         public void Save(T entity)
         {
+            Table.Add(entity);
+            Context.SaveChanges();
+        }
+
+        public void Update(T entity)
+        {
+            Table.Update(entity);
             Context.SaveChanges();
         }
 
@@ -63,7 +70,8 @@ namespace ITinnovDesign.Storefront.Repository.EF
         public void Remove(T entity)
         {
             Table.Remove(entity);
-            
+            Context.SaveChanges();
+
         }
 
         public void Save()

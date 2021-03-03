@@ -41,7 +41,20 @@ namespace ITinnovDesign.Storefront.Services.Implementations
         {
             GetBasketResponse response = new GetBasketResponse();
 
-            Basket basket = _basketRepository.GetAll().Where(x=>x.Id==request.BasketId).FirstOrDefault();
+            Basket basket = _basketRepository.GetAll().Include(x=>x.Items)
+                                                      .ThenInclude(x=>x.Product)
+                                                      .ThenInclude(x=>x.Title)
+                                                      .Include(x => x.Items)
+                                                      .ThenInclude(x => x.Product)
+                                                      .ThenInclude(x => x.Size)
+                                                      .Include(x => x.Items)
+                                                      .ThenInclude(x => x.Product)
+                                                      .ThenInclude(x => x.Color)
+                                                      .Include(x => x.Items)
+                                                      .ThenInclude(x => x.Product)
+                                                      .ThenInclude(x => x.Brand)
+
+                                                      .Where(x=>x.Id==request.BasketId).FirstOrDefault();
             BasketView basketView;
 
             if (basket != null)
@@ -76,8 +89,9 @@ namespace ITinnovDesign.Storefront.Services.Implementations
 
         private DeliveryOption GetCheapestDeliveryOption()
         {
-            return _deliveryOptionRepository.GetAll().Include(x=>x.ShippingService)
+            var delOpt= _deliveryOptionRepository.GetAll().Include(x => x.ShippingService)
                             .OrderBy(d => d.Cost).FirstOrDefault();
+            return delOpt;
         }
 
         private void ThrowExceptionIfBasketIsInvalid(Basket basket)
@@ -119,7 +133,7 @@ namespace ITinnovDesign.Storefront.Services.Implementations
 
             ThrowExceptionIfBasketIsInvalid(basket);
 
-            _basketRepository.Save(basket);
+            _basketRepository.Update(basket);
            // _uow.Commit();
 
             response.Basket = basket.ConvertToBasketView(_mapper);
@@ -158,7 +172,11 @@ namespace ITinnovDesign.Storefront.Services.Implementations
             if (productsToAdd.Count() > 0)
                 foreach (int productId in productsToAdd)
                 {
-                    product = _productRepository.FindBy(productId);
+                    product = _productRepository.GetAll().Include(x=>x.Title)
+                                                         .Include(x=>x.Category)
+                                                         .Include(x=>x.Size)
+                                                         .Include(x=>x.Color)
+                                                         .Include(x=>x.Brand).Where(x=>x.Id== productId).FirstOrDefault();
                     basket.Add(product);
                 }
         }
@@ -166,7 +184,7 @@ namespace ITinnovDesign.Storefront.Services.Implementations
         public GetAllDispatchOptionsResponse GetAllDispatchOptions()
         {
             GetAllDispatchOptionsResponse response = new GetAllDispatchOptionsResponse();
-            response.DeliveryOptions = _deliveryOptionRepository.GetAll()
+            response.DeliveryOptions = _deliveryOptionRepository.GetAll().Include(x=>x.ShippingService)
                                     .OrderBy(d => d.Cost).ConvertToDeliveryOptionViews(_mapper);
 
             return response;

@@ -25,16 +25,19 @@ namespace ITinnovDesign.Storefront.Model.Shipping
         public string Code
         {
             get { return _code; }
+            set { value = _code; }
         }
 
         public string Description
         {
             get { return _description; }
+            set { value = _description; }
         }
 
         public Courier Courier
         {
             get { return _courier; }
+            set { value= _courier; }
         }
 
         protected override void Validate()

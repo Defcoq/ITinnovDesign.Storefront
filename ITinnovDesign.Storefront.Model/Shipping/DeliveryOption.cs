@@ -34,16 +34,19 @@ namespace ITinnovDesign.Storefront.Model.Shipping
         public decimal FreeDeliveryThreshold
         {
             get { return _freeDeliveryThreshold; }
+            set { value= _freeDeliveryThreshold; }
         }
 
         public decimal Cost
         {
             get { return _cost; }
+            set { value = _cost; }
         }
 
         public ShippingService ShippingService
         {
             get { return _shippingService; }
+            set { value= _shippingService; }
         }
 
         protected override void Validate()

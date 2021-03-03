@@ -185,7 +185,13 @@ namespace ITinnovDesign.Storefront.Services.Implementations
         {
             GetProductResponse response = new GetProductResponse();
 
-            ProductTitle productTitle = _productTitleRepository.FindBy(request.ProductId);
+            ProductTitle productTitle = _productTitleRepository.GetAll().Include(x => x.Category)
+                                                                        .Include(x => x.Brand)
+                                                                        .Include(x => x.Color)
+                                                                        .Include(x=>x.Products)
+                                                                        .ThenInclude(x=>x.Size)
+                                                                        .Where(x => x.Id == request.ProductId).FirstOrDefault();
+             
 
             response.Product = productTitle.ConvertToProductDetailView(_mapper);
 

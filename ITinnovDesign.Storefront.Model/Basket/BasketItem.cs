@@ -28,12 +28,12 @@ namespace ITinnovDesign.Storefront.Model.Basket
             return (decimal)Product.Price * Qty;
         }
 
-        public int Qty { get { return _qty; } }
+        public int Qty { get { return _qty; } set { value = _qty; } }
 
-        public Product Product { get { return _product; } }
+        public Product Product { get { return _product; } set { value = _product; } }
 
         public Guid BasketId { get; set; }
-        public Basket Basket { get { return _basket; } }
+        public Basket Basket { get { return _basket; } set { value = _basket; } }
 
         public bool Contains(Product product)
         {

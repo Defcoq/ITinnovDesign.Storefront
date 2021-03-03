@@ -27,3 +27,13 @@ function showOverlay(overlayId, idOfDivToOverlay) {
       		    function() { }
       	       );
 }
+
+function updateBasketSummary(basketSummary) {
+
+    if (basketSummary.NumberOfItems == 0) {
+        $('#basket-summary-text').text('empty');
+    }
+    else {
+        $('#basket-summary-text').text(basketSummary.NumberOfItems + ' Item(s) at ' + basketSummary.BasketTotal);
+    }
+}

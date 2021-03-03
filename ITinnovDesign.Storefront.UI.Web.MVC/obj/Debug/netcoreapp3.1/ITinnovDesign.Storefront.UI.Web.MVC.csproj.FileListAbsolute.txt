@@ -188,3 +188,5 @@ C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinn
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Repository.EF.dll
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Repository.EF.pdb
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Basket\View.cshtml.g.cs
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketSummary.cshtml.g.cs

@@ -30,10 +30,26 @@ namespace ITinnovDesign.Storefront.Controllers.JsonDTOs
             {
                 return Task.CompletedTask;
             }
+            var ModelType = bindingContext.ModelType;
+            if(ModelType  == typeof(JsonProductSearchRequest))
+            {
+                var jsonProductSearchRequest = JsonConvert.DeserializeObject<JsonProductSearchRequest>(valueFromBody);
+                bindingContext.Result = ModelBindingResult.Success(jsonProductSearchRequest);
+            }
 
-           // string values = Convert.ToString(((JValue)JObject.Parse(valueFromBody)["value"]).Value);
-            var jsonProductSearchRequest = JsonConvert.DeserializeObject<JsonProductSearchRequest>(valueFromBody);
-            bindingContext.Result = ModelBindingResult.Success(jsonProductSearchRequest);
+            if (ModelType == typeof(JsonBasketItemUpdateRequest))
+            {
+                var jsonBasketItemUpdateRequest = JsonConvert.DeserializeObject<JsonBasketItemUpdateRequest>(valueFromBody);
+                bindingContext.Result = ModelBindingResult.Success(jsonBasketItemUpdateRequest);
+            }
+
+            if (ModelType == typeof(JsonBasketQtyUpdateRequest))
+            {
+                var jsonBasketQtyUpdateRequest = JsonConvert.DeserializeObject<JsonBasketQtyUpdateRequest>(valueFromBody);
+                bindingContext.Result = ModelBindingResult.Success(jsonBasketQtyUpdateRequest);
+            }
+            // string values = Convert.ToString(((JValue)JObject.Parse(valueFromBody)["value"]).Value);
+
 
             return Task.CompletedTask;
 

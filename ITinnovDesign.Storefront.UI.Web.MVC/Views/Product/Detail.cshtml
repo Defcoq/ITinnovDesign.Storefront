@@ -1,8 +1,43 @@
 ﻿@using ITinnovDesign.Storefront.Services.ViewModels
 @using ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog
 @using ITinnovDesign.Storefront.UI.Web.MVC.Helpers
+@model ITinnovDesign.Storefront.Controllers.ViewModels.ProductCatalog.ProductDetailView
 @{
     ViewData["Title"] = "Detail";
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+        function addProductToBasket() {
+
+            showOverlay("smoverlay", "basketSummary", 5);
+
+           // alert($("#productsizes").val());
+            var postData = {productId : $("#productsizes").val() };
+            console.log(JSON.stringify(postData));
+
+            $.ajax({
+                url: "@Url.Action("AddToBasket", "Basket")",
+                type: 'POST',
+                dataType: 'json',
+                data: postData,
+                contentType: 'application/x-www-form-urlencoded',
+                success: updateBasket,
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+
+           // $.post('/Basket/AddToBasket', JSON.stringify(postData), updateBasket, "json");
+        }
+
+        function updateBasket(basketSummaryView) {
+
+            updateBasketSummary(basketSummaryView);
+            hideOverlay("smoverlay");
+        }
+    </script>
 }
 
 <h1>@Model.Product.BrandName    @Model.Product.Name for only  @Model.Product.Price</h1>
@@ -17,12 +52,12 @@
             <select id="productsizes">
                 @foreach (ProductSizeOption option in Model.Product.Products)
                 {
-                <option value="@option.Id">@option.SizeName</option>
-                
+                    <option value="@option.Id">@option.SizeName</option>
+
                 }
             </select>
 
-            <input type="button" value="+ Add to cart" />
+            <input type="button" value="+ Add to cart" onclick="JavaScript:addProductToBasket();" />
         </p>
         <p>
             * - Rutrum mattis nulla sodales<br />
@@ -38,4 +73,4 @@
     Pellentesque magna lorem, faucibus quis feugiat non, aliquet in libero. Integer sit amet gravida erat. Duis sodales tempor felis ac adipiscing. Suspendisse non lectus enim.
     Vestibulum aliquet imperdiet posuere. Suspendisse ac diam odio. Ut porta metus a metus rutrum mattis. Nulla sodales, arcu ut mollis vehicula, tellus ante ultricies mauris, ultricies porttitor nunc purus a nisi.
 </p>
-     Nulla ipsum urna, cursus sed consectetur nec, varius quis diam. Morbi consequat sapien ut leo placerat ornare.
+    Nulla ipsum urna, cursus sed consectetur nec, varius quis diam. Morbi consequat sapien ut leo placerat ornare.
