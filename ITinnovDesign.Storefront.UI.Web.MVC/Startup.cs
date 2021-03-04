@@ -17,6 +17,7 @@ using ITinnovDesign.Storefront.Model;
 using ITinnovDesign.Storefront.UI.Web.MVC.Extension;
 using ITinnovDesign.Storefront.Services;
 using AutoMapper;
+using ITinnovDesign.Storefront.UI.Web.MVC.Models;
 
 namespace ITinnovDesign.Storefront.UI.Web.MVC
 {
@@ -39,8 +40,8 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC
             services.AddDbContext<ITInnovDesignSorefrontContext>(options => options.UseSqlServer((Configuration.GetConnectionString("ITinnovDesignStorefront"))));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    Configuration.GetConnectionString("ITinnovDesignStorefront")));
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews().AddJsonOptions(options => {
                 

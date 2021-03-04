@@ -3,6 +3,7 @@ using ITinnovDesign.Storefront.Infrastructure.CookieStorage;
 using ITinnovDesign.Storefront.Infrastructure.UnitOfWork;
 using ITinnovDesign.Storefront.Model.Basket;
 using ITinnovDesign.Storefront.Model.Categories;
+using ITinnovDesign.Storefront.Model.Customers;
 using ITinnovDesign.Storefront.Model.Products;
 using ITinnovDesign.Storefront.Model.Shipping;
 using ITinnovDesign.Storefront.Repository.EF;
@@ -25,7 +26,8 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Extension
             {
             services.AddTransient<IProductCatalogService, ProductCatalogService>()
                 .AddTransient<IBasketService, BasketService>()
-                .AddTransient<ICookieStorageService, CookieStorageService>();
+                .AddTransient<ICookieStorageService, CookieStorageService>()
+                .AddTransient<ICustomerService, CustomerService>();
               
             
                 return services;
@@ -42,7 +44,8 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Extension
                       .AddTransient<IBasketRepository, BasketRepository>()
                       .AddTransient<IDeliveryOptionRepository, DeliveryOptionRepository>()
                      .AddTransient<IUnitOfWorkRepository, FakeUnitOfWorkRepository>()
-                     .AddTransient<IUnitOfWork, FakeUnitOfWork>();
+                     .AddTransient<IUnitOfWork, FakeUnitOfWork>()
+                     .AddTransient<ICustomerRepository, CustomerRepository>();
 
 
             return services;

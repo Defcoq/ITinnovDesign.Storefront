@@ -2,6 +2,7 @@
 using ITinnovDesign.Storefront.Infrastructure.Helpers;
 using ITinnovDesign.Storefront.Model.Basket;
 using ITinnovDesign.Storefront.Model.Categories;
+using ITinnovDesign.Storefront.Model.Customers;
 using ITinnovDesign.Storefront.Model.Products;
 using ITinnovDesign.Storefront.Model.Shipping;
 using ITinnovDesign.Storefront.Services.ViewModels;
@@ -54,6 +55,10 @@ namespace ITinnovDesign.Storefront.Services
                                            .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
 
             // Global Money Formatter
+
+            // Customer
+            CreateMap<Customer, CustomerView>();
+            CreateMap<DeliveryAddress, DeliveryAddressView>();
 
 
         }

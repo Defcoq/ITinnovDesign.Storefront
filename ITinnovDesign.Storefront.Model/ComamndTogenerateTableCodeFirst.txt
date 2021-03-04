@@ -2,3 +2,8 @@
 > update-database –verbose   => fom package manegement console
  dotnet ef migrations add MigrationName  => from comamnd line or powershell inside the Model folder
  dotnet ef database update
+
+
+
+ Add-Migration IdentityUserCustomProperties -c ApplicationDbContext => to add identity user do it from ITinnovDesign.Storefront.UI.Web.MVC
+ Update-Database -Context ApplicationDbContext

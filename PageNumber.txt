@@ -9,3 +9,6 @@ stop =>483(513 of 712) 12/11/2020
 => 28/02/2021/1440 = 529 (559 to 712) => implementing the basket shopping
 
 => 03/03/2021/2030 = 565 (585 to 712) => Customer MemberShip
+
+
+=> 04/03/2021/2030 = 583 (616 to 712) => Customer MemberShip
