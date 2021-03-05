@@ -1,4 +1,5 @@
 ﻿using ITinnovDesign.Storefront.Infrastructure;
+using ITinnovDesign.Storefront.Infrastructure.Authentication;
 using ITinnovDesign.Storefront.Infrastructure.CookieStorage;
 using ITinnovDesign.Storefront.Infrastructure.UnitOfWork;
 using ITinnovDesign.Storefront.Model.Basket;
@@ -9,6 +10,7 @@ using ITinnovDesign.Storefront.Model.Shipping;
 using ITinnovDesign.Storefront.Repository.EF;
 using ITinnovDesign.Storefront.Services.Implementations;
 using ITinnovDesign.Storefront.Services.Interfaces;
+using ITinnovDesign.Storefront.UI.Web.MVC.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,8 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Extension
             services.AddTransient<IProductCatalogService, ProductCatalogService>()
                 .AddTransient<IBasketService, BasketService>()
                 .AddTransient<ICookieStorageService, CookieStorageService>()
-                .AddTransient<ICustomerService, CustomerService>();
+                .AddTransient<ICustomerService, CustomerService>()
+                .AddTransient<ILocalAuthenticationService, AspMembershipAuthentication>();
               
             
                 return services;

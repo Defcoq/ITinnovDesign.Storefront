@@ -190,3 +190,13 @@ C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinn
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Basket\View.cshtml.g.cs
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BasketSummary.cshtml.g.cs
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.UI.Web.MVC\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
