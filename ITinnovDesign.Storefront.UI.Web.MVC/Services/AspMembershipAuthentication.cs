@@ -13,12 +13,12 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Services
 {
     public class AspMembershipAuthentication : ILocalAuthenticationService
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<AspMembershipAuthentication> _logger;
-        public AspMembershipAuthentication(SignInManager<IdentityUser> signInManager,
+        public AspMembershipAuthentication(SignInManager<ApplicationUser> signInManager,
             ILogger<AspMembershipAuthentication> logger,
-            UserManager<IdentityUser> userManager)
+            UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -36,7 +36,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Services
             {
                 var userSignin = _userManager.FindByNameAsync(email).Result;
                 _logger.LogInformation("User logged in.");
-                user.AuthenticationToken = _userManager.GetAuthenticationTokenAsync(userSignin, "Default", "access_token").Result;
+                user.AuthenticationToken = userSignin.Id;// _userManager.GetAuthenticationTokenAsync(userSignin, "Default", "access_token").Result;
                 user.Email = email;
                 user.IsAuthenticated = true;
         
@@ -60,7 +60,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Services
                 _logger.LogInformation("ITInnovDesign  User created a new account with password.");
                 var userSignin = _userManager.FindByNameAsync(email).Result;
                 _logger.LogInformation("User logged in.");
-                user.AuthenticationToken = _userManager.GetAuthenticationTokenAsync(userSignin, "Default", "access_token").Result;
+                user.AuthenticationToken = userSignin.Id;// _userManager.GetAuthenticationTokenAsync(userSignin, "Default", "access_token").Result;
                 user.Email = email;
                 user.IsAuthenticated = true;
 

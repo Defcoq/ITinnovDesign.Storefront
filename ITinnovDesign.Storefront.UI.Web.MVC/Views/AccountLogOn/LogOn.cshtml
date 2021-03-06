@@ -1,0 +1,35 @@
+﻿@using ITinnovDesign.Storefront.Controllers.ViewModels.Account
+<h2>Log On</h2>
+   @if (Model.HasIssue) { 
+<p>
+    <div style="color: #D63301; background-color: #FFCCBA;
+               padding:15px 10px 15px 50px;">
+        @Html.Encode(Model.Message)
+    </div>
+</p>
+    } 
+<p>
+    Please enter your username and password.
+    @Html.ActionLink("Register", "Register", "AccountRegister") 
+    if you don't
+    have an account.
+</p>
+
+
+
+<h2>Login with your account </h2>
+    @using (Html.BeginForm("LogOnPost", "AccountLogOn", FormMethod.Post)) {
+<div>
+    <p>
+        <label for="username">Email:</label><br />
+        @Html.TextBox("email") 
+    </p>
+    <p>
+        <label for="password">Password:</label><br />
+        @Html.Password("password") 
+    </p>
+    <p>
+        <input type="submit" value="Log On" />
+    </p>
+</div>
+     } 

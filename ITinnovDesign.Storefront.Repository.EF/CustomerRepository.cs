@@ -19,7 +19,7 @@ namespace ITinnovDesign.Storefront.Repository.EF
         public Customer FindBy(string identityToken)
         {
           
-            IList<Customer> customers = Context.Customers.Where(x => x.IdentityToken == identityToken).ToList();
+            IList<Customer> customers = Context.Customers.Where(x => x.AuthenticationToken == identityToken).ToList();
            //IList <Customer> customers = criteriaQuery.List<Customer>();
 
             Customer customer = customers.FirstOrDefault();

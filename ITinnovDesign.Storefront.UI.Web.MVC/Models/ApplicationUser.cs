@@ -9,11 +9,11 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Models
     public class ApplicationUser : IdentityUser
     {
 
-        public string UserUniqueId { get; set; }
+        //public string UserUniqueId { get; set; }
 
-        public bool IsUserEnabled { get; set; }
+        //public bool IsUserEnabled { get; set; }
 
-        public string AuthenticationToken { get; set; }
-        public bool IsAuthenticated { get; set; }
+        //public string AuthenticationToken { get; set; }
+        //public bool IsAuthenticated { get; set; }
     }
 }

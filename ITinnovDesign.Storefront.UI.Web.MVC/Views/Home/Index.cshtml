@@ -6,15 +6,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-
+<partial name="_BasketSummary" model="((BaseProductCatalogPageView)Model).BasketSummary" />
+<br/>
 <partial name="_ProductCatalogMaster" />
 <div class="text-center">
-
+    
     <br />
     <img width="559" height="297" src="~/Content/Images/Products/product-lifestyle.jpg" style="border-width: 0px; padding: 0px; margin: 0px" />
     @*<div style="clear: both;"></div>*@
     <h2>Top Products</h2>
-   
+
 </div>
 
 

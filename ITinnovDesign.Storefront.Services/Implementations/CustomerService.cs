@@ -31,15 +31,16 @@ namespace ITinnovDesign.Storefront.Services.Implementations
         {
             CreateCustomerResponse response = new CreateCustomerResponse();
             Customer customer = new Customer();
-            customer.IdentityToken = request.CustomerIdentityToken;
+            customer.AuthenticationToken = request.CustomerIdentityToken;
             customer.Email = request.Email;
             customer.FirstName = request.FirstName;
             customer.SecondName = request.SecondName;
 
             ThrowExceptionIfCustomerIsInvalid(customer);
 
-            _customerRepository.Add(customer);
-            _uow.Commit();
+           // _customerRepository.Add(customer);
+            _customerRepository.Save(customer);
+          //  _uow.Commit();
 
             response.Customer = customer.ConvertToCustomerDetailView(_mapper);
 
@@ -66,8 +67,7 @@ namespace ITinnovDesign.Storefront.Services.Implementations
         {
             GetCustomerResponse response = new GetCustomerResponse();
 
-            Customer customer = _customerRepository
-                                     .FindBy(request.CustomerIdentityToken);
+            Customer customer = _customerRepository.FindBy(request.CustomerIdentityToken);
 
             if (customer != null)
             {
@@ -94,8 +94,8 @@ namespace ITinnovDesign.Storefront.Services.Implementations
 
             ThrowExceptionIfCustomerIsInvalid(customer);
 
-            _customerRepository.Save(customer);
-            _uow.Commit();
+            _customerRepository.Update(customer);
+           // _uow.Commit();
 
             response.Customer = customer.ConvertToCustomerDetailView(_mapper);
 
@@ -119,8 +119,8 @@ namespace ITinnovDesign.Storefront.Services.Implementations
             {
                 UpdateDeliveryAddressFrom(request.Address, deliveryAddress);
 
-                _customerRepository.Save(customer);
-                _uow.Commit();
+                _customerRepository.Update(customer);
+               // _uow.Commit();
             }
 
             response.DeliveryAddress = deliveryAddress
@@ -143,8 +143,8 @@ namespace ITinnovDesign.Storefront.Services.Implementations
 
             customer.AddAddress(deliveryAddress);
 
-            _customerRepository.Save(customer);
-            _uow.Commit();
+            _customerRepository.Update(customer);
+           // _uow.Commit();
 
             response.DeliveryAddress = deliveryAddress
                                          .ConvertToDeliveryAddressView(_mapper);

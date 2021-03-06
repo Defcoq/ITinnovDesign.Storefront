@@ -7,3 +7,5 @@
 
  Add-Migration IdentityUserCustomProperties -c ApplicationDbContext => to add identity user do it from ITinnovDesign.Storefront.UI.Web.MVC
  Update-Database -Context ApplicationDbContext
+
+add-migration  ApplicationUser

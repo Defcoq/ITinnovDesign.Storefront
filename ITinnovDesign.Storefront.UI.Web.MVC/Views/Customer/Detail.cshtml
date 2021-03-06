@@ -1,0 +1,23 @@
+﻿@using ITinnovDesign.Storefront.Controllers.ViewModels.CustomerAccount
+
+<partial name="_CustomerAccountMaster" />
+
+<h2>Your Details</h2>
+
+    @using (Html.BeginForm()) {
+<p>
+    <label for="FirstName">FirstName:</label><br />
+    @Html.TextBox("FirstName",(string) Model.Customer.FirstName)
+</p>
+<p>
+    <label for="SecondName">SecondName:</label><br />
+   @Html.TextBox("SecondName", (string)Model.Customer.SecondName)
+</p>
+<p>
+    <label for="Email">Email:</label><br />
+    @Html.TextBox("Email", (string)Model.Customer.Email)
+</p>
+<p>
+    <input type="submit" value="Save" />
+</p>
+     }    

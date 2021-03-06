@@ -1,4 +1,5 @@
-﻿using ITinnovDesign.Storefront.Infrastructure;
+﻿using ITinnovDesign.Storefront.Controllers.ActionArguments;
+using ITinnovDesign.Storefront.Infrastructure;
 using ITinnovDesign.Storefront.Infrastructure.Authentication;
 using ITinnovDesign.Storefront.Infrastructure.CookieStorage;
 using ITinnovDesign.Storefront.Infrastructure.UnitOfWork;
@@ -30,7 +31,8 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Extension
                 .AddTransient<IBasketService, BasketService>()
                 .AddTransient<ICookieStorageService, CookieStorageService>()
                 .AddTransient<ICustomerService, CustomerService>()
-                .AddTransient<ILocalAuthenticationService, AspMembershipAuthentication>();
+                .AddTransient<ILocalAuthenticationService, AspMembershipAuthentication>()
+                .AddTransient<IActionArguments,HttpRequestActionArguments>();
               
             
                 return services;

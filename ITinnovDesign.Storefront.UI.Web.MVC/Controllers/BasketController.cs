@@ -157,6 +157,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
                 }
                 catch (BasketDoesNotExistException ex)
                 {
+                    
                     createNewBasket = true;
                 }
             }

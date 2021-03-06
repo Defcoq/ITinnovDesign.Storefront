@@ -1,0 +1,41 @@
+﻿@using ITinnovDesign.Storefront.Controllers.ViewModels.Account
+
+ @if (Model.HasIssue) { 
+<p>
+    <div style="color: #D63301; background-color: #FFCCBA;
+               padding:15px 10px 15px 50px;">
+        @Html.Encode(Model.Message)
+    </div>
+</p>
+    } 
+
+
+<h2>Don't have an internet account? Create an account with us</h2>
+
+    @using (Html.BeginForm("RegisterPost","AccountRegister", FormMethod.Post)) {
+<div>
+    <p>
+        <label for="email">Email:</label><br />
+        @Html.TextBox("email")
+    </p>
+    <p>
+        <label for="password">Password:</label><br />
+        @Html.Password("password")
+    </p>
+    <p>
+        <label for="confirmPassword">Confirm password:</label><br />
+        @Html.Password("confirmPassword")
+    </p>
+    <p>
+        <label for="email">First Name:</label><br />
+        @Html.TextBox("FirstName")
+    </p>
+    <p>
+        <label for="email">Second Name:</label><br />
+         @Html.TextBox("SecondName")
+    </p>
+    <p>
+        <input type="submit" value="Register" />
+    </p>
+</div>
+    }

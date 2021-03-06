@@ -1,12 +1,12 @@
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.deps.json
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.runtimeconfig.json
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.runtimeconfig.dev.json
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.pdb
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.csprojAssemblyReference.cache
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.AssemblyInfoInputs.cache
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.AssemblyInfo.cs
-C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.dll
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.pdb
-C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.runtimeconfig.json
-C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\bin\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.runtimeconfig.dev.json
 C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\ITinnovDesign.Storefront.Infrastructure\obj\Debug\netcoreapp3.1\ITinnovDesign.Storefront.Infrastructure.genruntimeconfig.cache

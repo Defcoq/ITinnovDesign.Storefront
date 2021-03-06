@@ -1,26 +1,45 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
-</ul>
+
+<span class="basket-details">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-controller="Customer" asp-action="Detail">Your Account</a> <span>/</span> <a asp-controller="AccountLogOn" asp-action="SignOut">Log Off</a>
+        @*@Html.ActionLink("Your Account", "Detail", "Customer") <span>/</span> @Html.ActionLink("Log Off", "SignOut", "AccountLogOn")*@
+    }
+    else
+    {
+        <a asp-controller="AccountRegister" asp-action="Register">Create Account</a> <span>/</span> <a asp-controller="AccountLogOn" asp-action="LogOn">Log On</a>
+        @*@Html.ActionLink("Create Account", "Register", "AccountRegister") <span>/</span> @Html.ActionLink("Log On", "LogOn", "AccountLogOn")*@
+    }
+</span>
+
+
+@*<ul class="navbar-nav">
+
+    @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                    <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                </li>
+                <li class="nav-item">
+                    <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                    </form>
+                </li>
+
+
+
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
+</ul>*@

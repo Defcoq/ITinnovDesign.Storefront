@@ -1,0 +1,14 @@
+﻿@using ITinnovDesign.Storefront.Services.ViewModels
+@using ITinnovDesign.Storefront.Controllers.ViewModels.CustomerAccount
+
+<partial name="_CustomerAccountMaster" />
+<h2>Address Detail</h2>
+
+@using (Html.BeginForm())
+{
+
+    <partial name="_AddressEdit" model="(string)Model.Address" />
+    <p>
+        <input type="submit" value="Save" />
+    </p>
+} 
