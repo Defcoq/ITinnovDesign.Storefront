@@ -56,6 +56,13 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC
             });
             services.AddRazorPages();
             //ITInnovDesignSorefrontContext
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(3600);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = true;
+            });
             services.Configure<WebConfigApplicationSettings>(Configuration.GetSection("WebConfigApplicationSettings"));
             services.AddTransient<IApplicationSettings, WebConfigApplicationSettings>();
             services.AddRepositories();
@@ -84,7 +91,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

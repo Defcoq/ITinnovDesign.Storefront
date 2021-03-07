@@ -4,7 +4,7 @@
 <partial name="_CustomerAccountMaster" />
 <h2>Address Detail</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("EditDeliveryAddressPost", "Customer", FormMethod.Post))
 {
 
     <partial name="_AddressEdit" model="(string)Model.Address" />

@@ -4,7 +4,7 @@
 
 <h2>Your Details</h2>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DetailPost","Customer",FormMethod.Post)) {
 <p>
     <label for="FirstName">FirstName:</label><br />
     @Html.TextBox("FirstName",(string) Model.Customer.FirstName)

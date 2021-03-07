@@ -6,6 +6,7 @@ using ITinnovDesign.Storefront.Services.Interfaces;
 using ITinnovDesign.Storefront.Services.Mapping;
 using ITinnovDesign.Storefront.Services.Messaging.CustomerService;
 using ITinnovDesign.Storefront.Services.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,8 +134,8 @@ namespace ITinnovDesign.Storefront.Services.Implementations
                                                     DeliveryAddressAddRequest request)
         {
             DeliveryAddressAddResponse response = new DeliveryAddressAddResponse();
-            Customer customer = _customerRepository
-                                        .FindBy(request.CustomerIdentityToken);
+            Customer customer = _customerRepository.GetAll().Include(x=>x.DeliveryAddressBook).Where(x => x.AuthenticationToken == request.CustomerIdentityToken).FirstOrDefault();
+                                       
 
             DeliveryAddress deliveryAddress = new DeliveryAddress();
 

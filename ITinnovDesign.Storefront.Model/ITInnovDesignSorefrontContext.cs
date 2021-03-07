@@ -186,7 +186,7 @@ namespace ITinnovDesign.Storefront.Model
                          .Property(f => f.Id)
                          .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<DeliveryAddress>()
+            modelBuilder.Entity<DeliveryAddress>().ToTable("CustomerDeliveryAddresses")
            .HasKey("Id");
 
             modelBuilder.Entity<DeliveryAddress>()

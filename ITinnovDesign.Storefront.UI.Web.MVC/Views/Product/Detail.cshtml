@@ -41,6 +41,8 @@
 }
 
 <h1>@Model.Product.BrandName    @Model.Product.Name for only  @Model.Product.Price</h1>
+<br/>
+<partial name="_BasketSummary" model="((BaseProductCatalogPageView)Model).BasketSummary" />
 
 <div>
     <span style="float : left"><img src="~/Content/Images/Products/@(Model.Product.Id.ToString()).jpg" /></span>

@@ -4,10 +4,10 @@
 <partial name="_CustomerAccountMaster" />
 <h2>AddDeliveryAddress</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("AddDeliveryAddressPost", "Customer", FormMethod.Post))
 {
 
-    <partial name="_AddressEdit" model="(string)Model.Address" />
+    <partial name="_AddressEdit" model="(DeliveryAddressView)Model.Address" />
     <p>
         <input type="submit" value="Save" />
     </p>

@@ -12,3 +12,6 @@ stop =>483(513 of 712) 12/11/2020
 
 
 => 04/03/2021/2030 = 590 (620 to 712) => Customer MemberShip
+
+=> 06/03/2021/2030 = 512 (642 to 712) => Customer MemberShip
+=> 07/03/2021/1447 => 615 (645 to 712) => Ordring and payment

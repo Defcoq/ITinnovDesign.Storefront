@@ -4,6 +4,7 @@ using ITinnovDesign.Storefront.Controllers.ViewModels.Account;
 using ITinnovDesign.Storefront.Infrastructure.Authentication;
 using ITinnovDesign.Storefront.Services.Interfaces;
 using ITinnovDesign.Storefront.UI.Web.MVC.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,7 +43,9 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
 
             if (user.IsAuthenticated)
             {
-               
+
+                HttpContext.Session.SetString("USERID", user.AuthenticationToken);
+            
 
                 if (!String.IsNullOrEmpty(returnUrl))
                     return Redirect(returnUrl);

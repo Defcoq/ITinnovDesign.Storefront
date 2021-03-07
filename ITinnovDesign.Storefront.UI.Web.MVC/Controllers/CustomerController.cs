@@ -6,6 +6,7 @@ using ITinnovDesign.Storefront.Services.Messaging.CustomerService;
 using ITinnovDesign.Storefront.Services.ViewModels;
 using ITinnovDesign.Storefront.UI.Web.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,8 +23,8 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         //private readonly IFormsAuthentication _formsAuthentication;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        IdentityUser _user;
-
+       // IdentityUser _user;
+        string UserId;
         public CustomerController(ICookieStorageService cookieStorageService,
                                   ICustomerService customerService,
                                   SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager
@@ -33,8 +34,9 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
             _customerService = customerService;
             _userManager = userManager;
             _signInManager = signInManager;
-             _user = _userManager.GetUserAsync(HttpContext.User).Result;
+            //  _user = _userManager.GetUserAsync(HttpContext.User).Result;
             // _formsAuthentication = formsAuthentication;
+          
         }
 
         [Authorize]
@@ -42,7 +44,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         {
             GetCustomerRequest customerRequest = new GetCustomerRequest();
            
-            customerRequest.CustomerIdentityToken = _user.Id;
+            customerRequest.CustomerIdentityToken = HttpContext.Session.GetString("USERID"); ;
 
             GetCustomerResponse response = _customerService.GetCustomer(customerRequest);
 
@@ -54,12 +56,12 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         }
 
         [Authorize]
-        [HttpPost("Detail")]
-        public ActionResult Detail(CustomerView customerView)
+        [HttpPost("DetailPost")]
+        public ActionResult DetailPost(CustomerView customerView)
         {
             ModifyCustomerRequest request = new ModifyCustomerRequest();
            
-            request.CustomerIdentityToken = _user.Id;
+            request.CustomerIdentityToken = HttpContext.Session.GetString("USERID"); ;
             request.Email = customerView.Email;
             request.FirstName = customerView.FirstName;
             request.SecondName = customerView.SecondName;
@@ -78,7 +80,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         public ActionResult DeliveryAddresses()
         {
             GetCustomerRequest customerRequest = new GetCustomerRequest();
-            customerRequest.CustomerIdentityToken = _user.Id;
+            customerRequest.CustomerIdentityToken = HttpContext.Session.GetString("USERID");
 
             GetCustomerResponse response = _customerService.GetCustomer(customerRequest);
 
@@ -94,7 +96,7 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         public ActionResult EditDeliveryAddress(int deliveryAddressId)
         {
             GetCustomerRequest customerRequest = new GetCustomerRequest();
-            customerRequest.CustomerIdentityToken = _user.Id;
+            customerRequest.CustomerIdentityToken = HttpContext.Session.GetString("USERID"); 
             GetCustomerResponse response = _customerService.GetCustomer(customerRequest);
 
             CustomerDeliveryAddressView deliveryAddressView =
@@ -110,12 +112,12 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         }
 
         [Authorize]
-        [HttpPost("EditDeliveryAddress")]
-        public ActionResult EditDeliveryAddress(DeliveryAddressView deliveryAddressView)
+        [HttpPost("EditDeliveryAddressPost")]
+        public ActionResult EditDeliveryAddressPost(DeliveryAddressView deliveryAddressView)
         {
             DeliveryAddressModifyRequest request = new DeliveryAddressModifyRequest();
             request.Address = deliveryAddressView;
-            request.CustomerIdentityToken = _user.Id;
+            request.CustomerIdentityToken = HttpContext.Session.GetString("USERID"); ;
 
             _customerService.ModifyDeliveryAddress(request);
 
@@ -135,12 +137,12 @@ namespace ITinnovDesign.Storefront.UI.Web.MVC.Controllers
         }
 
         [Authorize]
-       [ HttpPost("AddDeliveryAddress")]
-        public ActionResult AddDeliveryAddress(DeliveryAddressView deliveryAddressView)
+       [ HttpPost("AddDeliveryAddressPost")]
+        public ActionResult AddDeliveryAddressPost(DeliveryAddressView deliveryAddressView)
         {
             DeliveryAddressAddRequest request = new DeliveryAddressAddRequest();
             request.Address = deliveryAddressView;
-            request.CustomerIdentityToken = _user.Id;
+            request.CustomerIdentityToken = HttpContext.Session.GetString("USERID"); ;
 
             _customerService.AddDeliveryAddress(request);
 
