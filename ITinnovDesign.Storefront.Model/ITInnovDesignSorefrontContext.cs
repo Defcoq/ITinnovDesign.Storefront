@@ -1,6 +1,8 @@
 ﻿using ITinnovDesign.Storefront.Model.Basket;
 using ITinnovDesign.Storefront.Model.Categories;
 using ITinnovDesign.Storefront.Model.Customers;
+using ITinnovDesign.Storefront.Model.Orders;
+using ITinnovDesign.Storefront.Model.Orders.States;
 using ITinnovDesign.Storefront.Model.Products;
 using ITinnovDesign.Storefront.Model.Shipping;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +43,10 @@ namespace ITinnovDesign.Storefront.Model
         public DbSet<Customer> Customers { get; set; }
 
         public DbSet<DeliveryAddress> DeliveryAddresses { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<OrderState> OrderStates { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -199,9 +205,38 @@ namespace ITinnovDesign.Storefront.Model
             .HasForeignKey(y => y.CustomerId);
 
 
+            modelBuilder.Entity<Order>()
+           .HasKey("Id");
 
 
+            modelBuilder.Entity<Order>()
+              .Property(f => f.Id)
+              .ValueGeneratedOnAdd();
 
+            modelBuilder.Entity<OrderItem>()
+            .HasKey("Id");
+
+
+            modelBuilder.Entity<OrderItem>()
+              .Property(f => f.Id)
+              .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<OrderItem>()
+             .HasOne(p => p.Order)
+             .WithMany(b => b.Items)
+             .HasForeignKey(y => y.OrderId);
+
+            modelBuilder.Entity<OrderItem>()
+            .HasOne(p => p.Product);
+
+
+            modelBuilder.Entity<OrderState>()
+            .HasKey("Id");
+
+
+            modelBuilder.Entity<OrderState>()
+              .Property(f => f.Id)
+              .ValueGeneratedOnAdd();
 
 
 

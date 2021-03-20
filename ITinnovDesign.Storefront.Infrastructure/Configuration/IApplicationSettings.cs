@@ -8,5 +8,10 @@ namespace ITinnovDesign.Storefront.Infrastructure.Configuration
     {
         string LoggerName { get; }
         string NumberOfResultsPerPage { get; }
+
+        string JanrainApiKey { get; }
+
+        string PayPalBusinessEmail { get; }
+        string PayPalPaymentPostToUrl { get; }
     }
 }

@@ -1,0 +1,10 @@
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\bin\Debug\CrystalReportTest.exe.config
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\bin\Debug\CrystalReportTest.exe
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\bin\Debug\CrystalReportTest.pdb
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\bin\Debug\CrystalDecisions.Shared.dll
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\obj\Debug\CrystalReportTest.csprojAssemblyReference.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\obj\Debug\CrystalReportTest.csproj.CoreCompileInputs.cache
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\obj\Debug\CrystalReportTest.csproj.CopyComplete
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\obj\Debug\CrystalReportTest.exe
+C:\Worksapce\Dot.netCoreSample\Agathas.Storefront\ITinnovDesign.Storefront\CrystalReportTest\obj\Debug\CrystalReportTest.pdb

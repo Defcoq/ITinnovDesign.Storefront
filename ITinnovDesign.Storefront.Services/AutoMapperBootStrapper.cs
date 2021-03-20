@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using ITinnovDesign.Storefront.Infrastructure.Helpers;
+using ITinnovDesign.Storefront.Model;
 using ITinnovDesign.Storefront.Model.Basket;
 using ITinnovDesign.Storefront.Model.Categories;
 using ITinnovDesign.Storefront.Model.Customers;
+using ITinnovDesign.Storefront.Model.Orders;
+using ITinnovDesign.Storefront.Model.Orders.States;
 using ITinnovDesign.Storefront.Model.Products;
 using ITinnovDesign.Storefront.Model.Shipping;
 using ITinnovDesign.Storefront.Services.ViewModels;
@@ -60,9 +63,19 @@ namespace ITinnovDesign.Storefront.Services
             CreateMap<Customer, CustomerView>();
             CreateMap<DeliveryAddress, DeliveryAddressView>();
 
+            //Order
+            CreateMap<Order, OrderView>();
+            CreateMap<OrderItem, OrderItemView>();
+            CreateMap<Address, DeliveryAddressView>();
+            CreateMap<Order, OrderSummaryView>()
+            .ForMember(o => o.IsSubmitted,
+            opt => opt.MapFrom
+                   (src => src.Status == OrderStatus.Submitted ? true: false));
+
 
         }
     }
 
-  
+
+
 }

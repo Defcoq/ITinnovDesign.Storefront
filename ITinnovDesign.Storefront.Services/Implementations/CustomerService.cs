@@ -74,6 +74,9 @@ namespace ITinnovDesign.Storefront.Services.Implementations
             {
                 response.CustomerFound = true;
                 response.Customer = customer.ConvertToCustomerDetailView(_mapper);
+                if (request.LoadOrderSummary)
+                    response.Orders = customer.Orders
+                    .OrderByDescending(o => o.Created).ConvertToOrderSummaryViews(_mapper);
             }
             else
                 response.CustomerFound = false;

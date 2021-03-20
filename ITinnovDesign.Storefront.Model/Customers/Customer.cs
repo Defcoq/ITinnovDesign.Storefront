@@ -1,4 +1,5 @@
 ﻿using ITinnovDesign.Storefront.Infrastructure.Domain;
+using ITinnovDesign.Storefront.Model.Orders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,9 @@ namespace ITinnovDesign.Storefront.Model.Customers
     {
         private IList<DeliveryAddress> _deliveryAddressBook =
                                                 new List<DeliveryAddress>();
-      
+
+        public IList<Order> Orders { get; set; }
+
         public string AuthenticationToken { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
