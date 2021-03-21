@@ -1,0 +1,19 @@
+﻿
+@using ITinnovDesign.Storefront.Services.ViewModels
+@model ITinnovDesign.Storefront.Services.ViewModels.DeliveryAddressView
+
+
+<h2>Add DeliveryAddress</h2>
+
+@using (Html.BeginForm("AddDeliveryAddress", "Checkout"))
+{
+
+    <partial name="_AddressEdit" model="((DeliveryAddressView)Model)" />
+    <p>
+        <input type="submit" value="Create Address and Checkout" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Check Out", "Checkout", "Checkout")
+</div>

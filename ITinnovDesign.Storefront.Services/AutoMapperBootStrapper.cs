@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ITinnovDesign.Storefront.Infrastructure.Helpers;
+using ITinnovDesign.Storefront.Infrastructure.Payments;
 using ITinnovDesign.Storefront.Model;
 using ITinnovDesign.Storefront.Model.Basket;
 using ITinnovDesign.Storefront.Model.Categories;
@@ -72,9 +73,21 @@ namespace ITinnovDesign.Storefront.Services
             opt => opt.MapFrom
                    (src => src.Status == OrderStatus.Submitted ? true: false));
 
+            CreateMap<OrderView, OrderPaymentRequest>()
+                .ForMember(o => o.Total, opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.Total) ? decimal.Parse(src.Total.Substring(1, src.Total.Length - 1)) : 0))
+                .ForMember(o => o.ShippingCharge, opt => opt.MapFrom(src => decimal.Parse(src.ShippingCharge.Substring(1, src.ShippingCharge.Length - 1))));
+
+
+            CreateMap<OrderItemView, OrderItemPaymentRequest>()
+                .ForMember(o => o.Price, opt => opt.MapFrom(src => decimal.Parse(src.Price.Substring(1, src.Price.Length - 1))));
+
 
         }
+
+       
+
     }
+
 
 
 
